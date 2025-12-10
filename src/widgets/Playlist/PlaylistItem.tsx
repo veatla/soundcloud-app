@@ -3,13 +3,14 @@
 import type { PlaylistResponse } from "../../types/api";
 import Image from "next/image";
 import { formatDateToRelative } from "../../utils/date";
+import Link from "next/link";
 
 const PlaylistListItem: React.FC<PlaylistResponse & { index: number }> = (v) => {
   const thumbnail = (v.artwork_url ?? v.tracks?.[0].artwork_url)?.replace("-large", "-small");
-  console.log("AAAAAA", v);
   return (
-    <div
-      key={v.permalink_url}
+    <Link
+      href={`/playlist/` + v.urn!}
+      key={v.urn!}
       className="chat-list-item"
       tabIndex={0}
       style={{
@@ -43,7 +44,7 @@ const PlaylistListItem: React.FC<PlaylistResponse & { index: number }> = (v) => 
           />
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 

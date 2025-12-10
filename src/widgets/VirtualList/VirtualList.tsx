@@ -45,11 +45,7 @@ export function VirtualList<T extends PlaylistResponse | TrackResponse>({
         style={{ minHeight: `${totalCount * itemHeight}px` }}
       >
         {items.slice(visibleOffset, visibleOffset + limit).map((item, index) => (
-          <ItemComponent
-            key={item["permalink_url"] ?? index}
-            {...item}
-            index={index + visibleOffset}
-          />
+          <ItemComponent key={item["urn"] ?? index} {...item} index={index + visibleOffset} />
         ))}
       </div>
     </div>
