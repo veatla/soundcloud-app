@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto", -apple-system, apple color emoji, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --color-dark-background: #0f0f0f;
+  --color-surface-color: #212121;
+  --text-fz12: 12px;
+  --text-message: 12px;
+  --spacing-messages: 1.3125;
+}
+
+:root {
+  --font-size-12: 12px;
+  --font-size-message: 16px;
+  --message-handhelds-margin: 5.5625rem;
+  --message-beside-button-size: 2.375rem;
+  --message-beside-button-margin: calc((var(--message-beside-button-size) + 0.5rem) * -1);
+}
+
+html,
+body {
+  @apply bg-white dark:bg-dark-background h-full;
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+#root {
+  @apply h-full;
+}
+
+.overlay-scroll.scrollable:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0);
+}
+
+.scrollable {
+  --current-width: var(--current-sidebar-left-width, 420px);
+  flex: var(--current-width) 1 auto;
+  width: var(--current-width);
+  overflow-y: auto;
+  overflow-y: overlay;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
