@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useEffect, useState, type ComponentType } from "react";
 import type { PlaylistResponse, TrackResponse } from "../../types/api";
 import "./list-items.css";

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-// import PlaylistList from "../../src/widgets/Playlist/PlaylistList";
+import PlaylistList from "../../src/widgets/Playlist/PlaylistList";
 
 const Dashboard: React.FC = function Dashboard() {
   return (
@@ -7,7 +7,9 @@ const Dashboard: React.FC = function Dashboard() {
       <div>
         <Suspense>
           <div className="bg-surface-color scrollable flex flex-col h-full">
-            <div className="mx-2 relative h-full">{/* <PlaylistList /> */}</div>
+            <div className="mx-2 relative h-full">
+              <PlaylistList />
+            </div>
           </div>
         </Suspense>
       </div>

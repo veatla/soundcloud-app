@@ -1,39 +1,15 @@
-import React, { useRef } from "react";
-
-import { format, isToday, isYesterday, isThisWeek, isThisYear } from "date-fns";
-import { enUS } from "date-fns/locale";
+"use client";
 
 import type { PlaylistResponse } from "../../types/api";
 import Image from "next/image";
-
-function formatChatDate(date: string) {
-  if (isToday(date)) {
-    return format(date, "HH:mm"); // Сегодня: время (например, "15:30")
-  }
-
-  if (isYesterday(date)) {
-    return "Yesterday"; // Вчера
-  }
-
-  if (isThisWeek(date, { weekStartsOn: 1 })) {
-    return format(date, "eeee", { locale: enUS }); // Текущая неделя: день недели (например, "понедельник")
-  }
-
-  if (isThisYear(date)) {
-    return format(date, "d MMM", { locale: enUS }); // Текущий год: день и месяц (например, "12 апреля")
-  }
-
-  return format(date, "dd.MM.yyyy"); // Более старые даты: полная дата (например, "12.04.2022")
-}
+import { formatDateToRelative } from "../../utils/date";
 
 const PlaylistListItem: React.FC<PlaylistResponse & { index: number }> = (v) => {
-  const rootRef = useRef<HTMLDivElement>(null);
   const thumbnail = (v.artwork_url ?? v.tracks?.[0].artwork_url)?.replace("-large", "-small");
   console.log("AAAAAA", v);
   return (
     <div
       key={v.permalink_url}
-      ref={rootRef}
       className="chat-list-item"
       tabIndex={0}
       style={{
@@ -51,7 +27,7 @@ const PlaylistListItem: React.FC<PlaylistResponse & { index: number }> = (v) => 
           {/* Muted */}
         </div>
         <div className="chat-list-title chat-title-right flex items-center h-5 -mt-2">
-          {v.created_at && formatChatDate(v.created_at)}
+          {v.created_at && formatDateToRelative(v.created_at)}
         </div>
       </div>
 
@@ -61,6 +37,8 @@ const PlaylistListItem: React.FC<PlaylistResponse & { index: number }> = (v) => 
             src={thumbnail?.replace("-large", "-small")}
             alt={thumbnail}
             loading="lazy"
+            width={52}
+            height={52}
             className="w-13 h-13"
           />
         )}
