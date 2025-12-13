@@ -1,44 +1,42 @@
 // import { cookies } from "next/headers";
 // import { ENV } from "../env";
 // import { getCookie, setCookie } from "../utils/cookie";
-import type { Paths, components } from "./api-types";
-import createClient from "openapi-fetch";
+import type { components } from './api-types';
 
-export type OAuthTokenResponse = components["schemas"]["OAuthToken"];
-export type TrackMetadataRequestResponse = components["schemas"]["TrackMetadataRequest"];
+export type OAuthTokenResponse = components['schemas']['OAuthToken'];
+export type TrackMetadataRequestResponse = components['schemas']['TrackMetadataRequest'];
 export type CreateUpdatePlaylistRequestResponse =
-  components["schemas"]["CreateUpdatePlaylistRequest"];
+	components['schemas']['CreateUpdatePlaylistRequest'];
 export type CreateUpdatePlaylistFormRequestResponse =
-  components["schemas"]["CreateUpdatePlaylistFormRequest"];
-export type TrackDataRequestResponse = components["schemas"]["TrackDataRequest"];
-export type FoundResponse = components["schemas"]["Found"];
-export type ErrorResponse = components["schemas"]["Error"];
-export type TooManyRequestsResponse = components["schemas"]["TooManyRequests"];
-export type UserResponse = components["schemas"]["User"];
-export type MeResponse = components["schemas"]["Me"];
-export type UsersResponse = components["schemas"]["Users"];
-export type TrackResponse = components["schemas"]["Track"];
-export type TracksResponse = components["schemas"]["Tracks"];
-export type TracksListResponse = components["schemas"]["TracksList"];
-export type PlaylistResponse = components["schemas"]["Playlist"];
-export type PlaylistsResponse = components["schemas"]["Playlists"];
-export type PlaylistsArrayResponse = components["schemas"]["PlaylistsArray"];
-export type ActivitiesResponse = components["schemas"]["Activities"];
-export type WebProfilesResponse = components["schemas"]["WebProfiles"];
-export type CommentResponse = components["schemas"]["Comment"];
-export type CommentsResponse = components["schemas"]["Comments"];
-export type StreamResponse = components["schemas"]["Streams"];
+	components['schemas']['CreateUpdatePlaylistFormRequest'];
+export type TrackDataRequestResponse = components['schemas']['TrackDataRequest'];
+export type FoundResponse = components['schemas']['Found'];
+export type ErrorResponse = components['schemas']['Error'];
+export type TooManyRequestsResponse = components['schemas']['TooManyRequests'];
+export type UserResponse = components['schemas']['User'];
+export type MeResponse = components['schemas']['Me'];
+export type UsersResponse = components['schemas']['Users'];
+export type TrackResponse = components['schemas']['Track'];
+export type TracksResponse = components['schemas']['Tracks'];
+export type TracksListResponse = components['schemas']['TracksList'];
+export type PlaylistResponse = components['schemas']['Playlist'];
+export type PlaylistsResponse = components['schemas']['Playlists'];
+export type PlaylistsArrayResponse = components['schemas']['PlaylistsArray'];
+export type ActivitiesResponse = components['schemas']['Activities'];
+export type WebProfilesResponse = components['schemas']['WebProfiles'];
+export type CommentResponse = components['schemas']['Comment'];
+export type CommentsResponse = components['schemas']['Comments'];
+export type StreamResponse = components['schemas']['Streams'];
 
 export interface ObtainTokenResponse {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-  refresh_token: string;
-  scope: string;
+	access_token: string;
+	token_type: string;
+	expires_in: number;
+	refresh_token: string;
+	scope: string;
 }
-export const API = createClient<Paths>({ baseUrl: "https://api.soundcloud.com/" });
+// export const API = createClient<Paths>({ baseUrl: 'https://api.soundcloud.com/' });
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
 // API.use({
 //   async onRequest({ request }) {
 //     const cookie = await cookies();
